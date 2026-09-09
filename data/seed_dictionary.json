@@ -1,196 +1,583 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "High-priority immune and neuron-related cell type terms mapped to preferred Cell Ontology (CL) labels and IDs for SPOKE consistency.",
   "source_notes": "Preferred labels and IDs based on Cell Ontology (CL). Synonyms include common free-text, abbreviations, and lab jargon. Always verify against latest CL via OLS (https://www.ebi.ac.uk/ols4/ontologies/cl).",
   "terms": [
     {
       "preferred_label": "T cell",
       "cl_id": "CL:0000084",
-      "synonyms": ["T-cell", "T lymphocyte", "T-lymphocyte", "T cells", "T-cells", "thymocyte (mature)", "alpha-beta T cell (broad)"],
+      "synonyms": [
+        "T-cell",
+        "T lymphocyte",
+        "T-lymphocyte",
+        "T cells",
+        "T-cells",
+        "thymocyte (mature)",
+        "alpha-beta T cell (broad)"
+      ],
       "category": "immune",
       "notes": "Broad parent. Prefer more specific subtypes when known."
     },
     {
       "preferred_label": "CD4-positive, alpha-beta T cell",
       "cl_id": "CL:0000624",
-      "synonyms": ["CD4 T cell", "CD4+ T cell", "CD4 T-cell", "helper T cell", "Th cell", "CD4-positive T cell", "CD4 lymphocyte"],
+      "synonyms": [
+        "CD4 T cell",
+        "CD4+ T cell",
+        "CD4 T-cell",
+        "helper T cell",
+        "Th cell",
+        "CD4-positive T cell",
+        "CD4 lymphocyte"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "CD8-positive, alpha-beta T cell",
       "cl_id": "CL:0000625",
-      "synonyms": ["CD8 T cell", "CD8+ T cell", "CD8 T-cell", "cytotoxic T cell", "CTL", "CD8-positive T cell", "CD8 lymphocyte"],
+      "synonyms": [
+        "CD8 T cell",
+        "CD8+ T cell",
+        "CD8 T-cell",
+        "cytotoxic T cell",
+        "CTL",
+        "CD8-positive T cell",
+        "CD8 lymphocyte"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "regulatory T cell",
       "cl_id": "CL:0000815",
-      "synonyms": ["Treg", "Tregs", "regulatory T-cell", "CD4+ CD25+ Foxp3+ T cell", "suppressor T cell"],
+      "synonyms": [
+        "Treg",
+        "Tregs",
+        "regulatory T-cell",
+        "CD4+ CD25+ Foxp3+ T cell",
+        "suppressor T cell"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "naive T cell",
       "cl_id": "CL:0000895",
-      "synonyms": ["naive T-cell", "Tn", "naive CD4 T cell", "naive CD8 T cell"],
+      "synonyms": [
+        "naive T-cell",
+        "Tn",
+        "naive CD4 T cell",
+        "naive CD8 T cell"
+      ],
       "category": "immune",
       "notes": "Often needs further CD4/CD8 specification."
     },
     {
       "preferred_label": "memory T cell",
       "cl_id": "CL:0000813",
-      "synonyms": ["memory T-cell", "Tmem", "memory T lymphocyte"],
+      "synonyms": [
+        "memory T-cell",
+        "Tmem",
+        "memory T lymphocyte"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "effector memory CD8-positive, alpha-beta T cell",
       "cl_id": "CL:0000913",
-      "synonyms": ["TEM", "Tem", "effector memory CD8 T cell", "CD8 TEM"],
+      "synonyms": [
+        "TEM",
+        "Tem",
+        "effector memory CD8 T cell",
+        "CD8 TEM"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "central memory CD8-positive, alpha-beta T cell",
       "cl_id": "CL:0000907",
-      "synonyms": ["TCM", "Tcm", "central memory CD8 T cell", "CD8 TCM"],
+      "synonyms": [
+        "TCM",
+        "Tcm",
+        "central memory CD8 T cell",
+        "CD8 TCM"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "B cell",
       "cl_id": "CL:0000236",
-      "synonyms": ["B-cell", "B lymphocyte", "B-lymphocyte", "B cells", "B-cells"],
+      "synonyms": [
+        "B-cell",
+        "B lymphocyte",
+        "B-lymphocyte",
+        "B cells",
+        "B-cells"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "plasma cell",
       "cl_id": "CL:0000786",
-      "synonyms": ["plasmacyte", "antibody-secreting cell", "ASC"],
+      "synonyms": [
+        "plasmacyte",
+        "antibody-secreting cell",
+        "ASC"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "natural killer cell",
       "cl_id": "CL:0000623",
-      "synonyms": ["NK cell", "NK-cell", "natural killer", "NK lymphocyte"],
+      "synonyms": [
+        "NK cell",
+        "NK-cell",
+        "natural killer",
+        "NK lymphocyte"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "macrophage",
       "cl_id": "CL:0000235",
-      "synonyms": ["Mφ", "M0", "macrophages"],
+      "synonyms": [
+        "Mφ",
+        "M0",
+        "macrophages"
+      ],
       "category": "immune",
       "notes": "Tissue-resident vs recruited often needs Anatomy context in SPOKE."
     },
     {
       "preferred_label": "microglial cell",
       "cl_id": "CL:0000129",
-      "synonyms": ["microglia", "brain macrophage", "CNS macrophage", "microglial"],
+      "synonyms": [
+        "microglia",
+        "brain macrophage",
+        "CNS macrophage",
+        "microglial"
+      ],
       "category": "immune_cns",
       "notes": "Key neuro-immune cell. Strongly prefer this over generic 'macrophage' for brain queries."
     },
     {
       "preferred_label": "dendritic cell",
       "cl_id": "CL:0000451",
-      "synonyms": ["DC", "DCs", "dendritic cells"],
+      "synonyms": [
+        "DC",
+        "DCs",
+        "dendritic cells"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "monocyte",
       "cl_id": "CL:0000576",
-      "synonyms": ["monocytes", "classical monocyte", "CD14+ monocyte"],
+      "synonyms": [
+        "monocytes",
+        "classical monocyte",
+        "CD14+ monocyte"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "neutrophil",
       "cl_id": "CL:0000775",
-      "synonyms": ["neutrophils", "PMN", "polymorphonuclear leukocyte"],
+      "synonyms": [
+        "neutrophils",
+        "PMN",
+        "polymorphonuclear leukocyte"
+      ],
       "category": "immune",
       "notes": ""
     },
     {
       "preferred_label": "neuron",
       "cl_id": "CL:0000540",
-      "synonyms": ["neurone", "nerve cell", "neurons", "neuronal cell"],
+      "synonyms": [
+        "neurone",
+        "nerve cell",
+        "neurons",
+        "neuronal cell"
+      ],
       "category": "neuron",
       "notes": "Very broad. Prefer more specific (e.g. glutamatergic, GABAergic, interneuron) when possible."
     },
     {
       "preferred_label": "glutamatergic neuron",
       "cl_id": "CL:0000679",
-      "synonyms": ["excitatory neuron", "glutamatergic", "Glu neuron"],
+      "synonyms": [
+        "excitatory neuron",
+        "glutamatergic",
+        "Glu neuron"
+      ],
       "category": "neuron",
       "notes": ""
     },
     {
       "preferred_label": "GABAergic neuron",
       "cl_id": "CL:0000617",
-      "synonyms": ["inhibitory neuron", "GABAergic", "GABA neuron"],
+      "synonyms": [
+        "inhibitory neuron",
+        "GABAergic",
+        "GABA neuron"
+      ],
       "category": "neuron",
       "notes": ""
     },
     {
       "preferred_label": "interneuron",
       "cl_id": "CL:0000099",
-      "synonyms": ["interneurons", "local circuit neuron"],
+      "synonyms": [
+        "interneurons",
+        "local circuit neuron"
+      ],
       "category": "neuron",
       "notes": ""
     },
     {
       "preferred_label": "pyramidal neuron",
       "cl_id": "CL:0000598",
-      "synonyms": ["pyramidal cell", "pyramidal neurons"],
+      "synonyms": [
+        "pyramidal cell",
+        "pyramidal neurons"
+      ],
       "category": "neuron",
       "notes": ""
     },
     {
       "preferred_label": "astrocyte",
       "cl_id": "CL:0000127",
-      "synonyms": ["astrocytes", "astroglial cell", "astroglia"],
+      "synonyms": [
+        "astrocytes",
+        "astroglial cell",
+        "astroglia"
+      ],
       "category": "glia",
       "notes": "Often relevant in neuro-immune contexts."
     },
     {
       "preferred_label": "oligodendrocyte",
       "cl_id": "CL:0000128",
-      "synonyms": ["oligodendrocytes", "OL", "oligo"],
+      "synonyms": [
+        "oligodendrocytes",
+        "OL",
+        "oligo"
+      ],
       "category": "glia",
       "notes": ""
     },
     {
       "preferred_label": "oligodendrocyte precursor cell",
       "cl_id": "CL:0002453",
-      "synonyms": ["OPC", "NG2 cell", "oligodendrocyte progenitor"],
+      "synonyms": [
+        "OPC",
+        "NG2 cell",
+        "oligodendrocyte progenitor"
+      ],
       "category": "glia",
       "notes": ""
     },
     {
       "preferred_label": "Schwann cell",
       "cl_id": "CL:0002573",
-      "synonyms": ["Schwann cells", "peripheral glia"],
+      "synonyms": [
+        "Schwann cells",
+        "peripheral glia"
+      ],
       "category": "glia",
       "notes": ""
     },
     {
       "preferred_label": "endothelial cell",
       "cl_id": "CL:0000115",
-      "synonyms": ["endothelium", "vascular endothelial cell", "EC"],
+      "synonyms": [
+        "endothelium",
+        "vascular endothelial cell",
+        "EC"
+      ],
       "category": "other",
       "notes": "Relevant for blood-brain barrier / neuro-immune."
     },
     {
       "preferred_label": "pericyte",
       "cl_id": "CL:0000669",
-      "synonyms": ["pericytes", "Rouget cell"],
+      "synonyms": [
+        "pericytes",
+        "Rouget cell"
+      ],
       "category": "other",
       "notes": ""
+    },
+    {
+      "preferred_label": "naive B cell",
+      "cl_id": "CL:0000788",
+      "synonyms": [
+        "naive B-cell",
+        "naive B lymphocyte",
+        "IgD+ CD27- B cell",
+        "Bn"
+      ],
+      "category": "immune",
+      "notes": "Mature B cell that has not yet encountered antigen."
+    },
+    {
+      "preferred_label": "memory B cell",
+      "cl_id": "CL:0000787",
+      "synonyms": [
+        "memory B-cell",
+        "memory B lymphocyte",
+        "Bmem",
+        "CD27+ B cell"
+      ],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "germinal center B cell",
+      "cl_id": "CL:0000844",
+      "synonyms": [
+        "GC B cell",
+        "germinal centre B cell",
+        "centroblast",
+        "centrocyte"
+      ],
+      "category": "immune",
+      "notes": "B cell within a germinal center undergoing affinity maturation."
+    },
+    {
+      "preferred_label": "plasmablast",
+      "cl_id": "CL:0000980",
+      "synonyms": [
+        "plasmablasts",
+        "antibody-secreting plasmablast"
+      ],
+      "category": "immune",
+      "notes": "Proliferating precursor of plasma cell."
+    },
+    {
+      "preferred_label": "marginal zone B cell",
+      "cl_id": "CL:0000845",
+      "synonyms": [
+        "MZ B cell",
+        "marginal-zone B cell"
+      ],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "follicular B cell",
+      "cl_id": "CL:0000843",
+      "synonyms": [
+        "FO B cell",
+        "follicular B-cell"
+      ],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "T-helper 1 cell",
+      "cl_id": "CL:0000545",
+      "synonyms": [
+        "Th1",
+        "Th1 cell",
+        "T helper 1",
+        "type 1 helper T cell"
+      ],
+      "category": "immune",
+      "notes": "CD4 T cell polarized to produce IFN-gamma."
+    },
+    {
+      "preferred_label": "T-helper 2 cell",
+      "cl_id": "CL:0000546",
+      "synonyms": [
+        "Th2",
+        "Th2 cell",
+        "T helper 2",
+        "type 2 helper T cell"
+      ],
+      "category": "immune",
+      "notes": "CD4 T cell polarized to produce IL-4/IL-5/IL-13."
+    },
+    {
+      "preferred_label": "T-helper 17 cell",
+      "cl_id": "CL:0000899",
+      "synonyms": [
+        "Th17",
+        "Th17 cell",
+        "T helper 17",
+        "type 17 helper T cell"
+      ],
+      "category": "immune",
+      "notes": "CD4 T cell polarized to produce IL-17."
+    },
+    {
+      "preferred_label": "T follicular helper cell",
+      "cl_id": "CL:0002038",
+      "synonyms": [
+        "Tfh",
+        "Tfh cell",
+        "follicular helper T cell",
+        "TFH"
+      ],
+      "category": "immune",
+      "notes": "CD4 T cell that helps B cells in germinal centers."
+    },
+    {
+      "preferred_label": "gamma-delta T cell",
+      "cl_id": "CL:0000798",
+      "synonyms": [
+        "gdT",
+        "gammadelta T cell",
+        "γδ T cell",
+        "gamma delta T cell"
+      ],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "mucosal invariant T cell",
+      "cl_id": "CL:0000940",
+      "synonyms": [
+        "MAIT",
+        "MAIT cell",
+        "mucosal-associated invariant T cell"
+      ],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "effector memory CD4-positive, alpha-beta T cell",
+      "cl_id": "CL:0000905",
+      "synonyms": [
+        "CD4 TEM",
+        "effector memory CD4 T cell",
+        "CD4 Tem"
+      ],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "central memory CD4-positive, alpha-beta T cell",
+      "cl_id": "CL:0000904",
+      "synonyms": [
+        "CD4 TCM",
+        "central memory CD4 T cell",
+        "CD4 Tcm"
+      ],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "effector CD8-positive, alpha-beta T cell",
+      "cl_id": "CL:0001050",
+      "synonyms": [
+        "CD8 effector",
+        "cytotoxic effector T cell",
+        "CD8 Teff"
+      ],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "L2/3 intratelencephalic projecting glutamatergic neuron",
+      "cl_id": "CL:4023040",
+      "synonyms": [
+        "L2/3 IT",
+        "layer 2/3 IT neuron",
+        "L2/3 pyramidal neuron",
+        "upper layer IT neuron"
+      ],
+      "category": "neuron",
+      "notes": "Intratelencephalic-projecting excitatory neuron of cortical layers 2/3."
+    },
+    {
+      "preferred_label": "L4 intratelencephalic projecting glutamatergic neuron",
+      "cl_id": "CL:4023038",
+      "synonyms": [
+        "L4 IT",
+        "layer 4 IT neuron",
+        "L4 excitatory neuron"
+      ],
+      "category": "neuron",
+      "notes": "Intratelencephalic-projecting excitatory neuron of cortical layer 4."
+    },
+    {
+      "preferred_label": "L5 extratelencephalic projecting glutamatergic cortical neuron",
+      "cl_id": "CL:4023041",
+      "synonyms": [
+        "L5 ET",
+        "L5 PT",
+        "layer 5 pyramidal tract neuron",
+        "L5 thick-tufted pyramidal"
+      ],
+      "category": "neuron",
+      "notes": "Extratelencephalic / pyramidal-tract projecting neuron of layer 5."
+    },
+    {
+      "preferred_label": "L6 corticothalamic-projecting glutamatergic cortical neuron",
+      "cl_id": "CL:4023042",
+      "synonyms": [
+        "L6 CT",
+        "layer 6 corticothalamic neuron",
+        "L6 CT neuron"
+      ],
+      "category": "neuron",
+      "notes": "Corticothalamic-projecting neuron of layer 6."
+    },
+    {
+      "preferred_label": "cortical interneuron",
+      "cl_id": "CL:0008025",
+      "synonyms": [
+        "cortical IN",
+        "neocortical interneuron"
+      ],
+      "category": "neuron",
+      "notes": "Broad class; prefer more specific (Pvalb, Sst, Vip, etc.) when known."
+    },
+    {
+      "preferred_label": "parvalbumin interneuron",
+      "cl_id": "CL:0012001",
+      "synonyms": [
+        "Pvalb interneuron",
+        "PV interneuron",
+        "PV+ interneuron",
+        "fast-spiking interneuron"
+      ],
+      "category": "neuron",
+      "notes": "Fast-spiking cortical/hippocampal interneuron expressing parvalbumin."
+    },
+    {
+      "preferred_label": "sst interneuron",
+      "cl_id": "CL:0012002",
+      "synonyms": [
+        "Sst interneuron",
+        "SST interneuron",
+        "somatostatin interneuron",
+        "SST+ interneuron"
+      ],
+      "category": "neuron",
+      "notes": "Somatostatin-expressing interneuron."
+    },
+    {
+      "preferred_label": "vip interneuron",
+      "cl_id": "CL:0012003",
+      "synonyms": [
+        "Vip interneuron",
+        "VIP interneuron",
+        "VIP+ interneuron"
+      ],
+      "category": "neuron",
+      "notes": "Vasoactive intestinal peptide-expressing interneuron."
     }
   ]
 }
