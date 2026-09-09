@@ -12,7 +12,7 @@ This reduces the “inconsistent annotations” problem when searching SPOKE Nei
 
 ## Features
 
-- Instant free-text → CL term mapping (seed dictionary + fuzzy matching)
+- Instant free-text → CL term mapping (seed dictionary + strict token matching)
 - Focused on immune cells (Tregs, CD8 TEM, microglia, …) and neurons/glia
 - One-click copy of preferred label or CL ID
 - Links to Cell Ontology (OLS) and SPOKE Neighborhood Explorer
