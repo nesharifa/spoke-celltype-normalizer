@@ -1,7 +1,7 @@
 # SPOKE Cell Type Normalizer
 
-**Live demo (after you enable GitHub Pages):**  
-`https://YOUR_USERNAME.github.io/spoke-celltype-normalizer/`
+**Live demo:**  
+`https://nesharifa.github.io/spoke-celltype-normalizer/`
 
 A lightweight add-on for the [SPOKE](https://spoke.ucsf.edu/) knowledge graph.  
 It maps free-text cell-type names, abbreviations, and synonyms to consistent **Cell Ontology (CL)** preferred labels — especially useful for immune cells and neurons.
