@@ -1,0 +1,196 @@
+{
+  "version": "0.1.0",
+  "description": "High-priority immune and neuron-related cell type terms mapped to preferred Cell Ontology (CL) labels and IDs for SPOKE consistency.",
+  "source_notes": "Preferred labels and IDs based on Cell Ontology (CL). Synonyms include common free-text, abbreviations, and lab jargon. Always verify against latest CL via OLS (https://www.ebi.ac.uk/ols4/ontologies/cl).",
+  "terms": [
+    {
+      "preferred_label": "T cell",
+      "cl_id": "CL:0000084",
+      "synonyms": ["T-cell", "T lymphocyte", "T-lymphocyte", "T cells", "T-cells", "thymocyte (mature)", "alpha-beta T cell (broad)"],
+      "category": "immune",
+      "notes": "Broad parent. Prefer more specific subtypes when known."
+    },
+    {
+      "preferred_label": "CD4-positive, alpha-beta T cell",
+      "cl_id": "CL:0000624",
+      "synonyms": ["CD4 T cell", "CD4+ T cell", "CD4 T-cell", "helper T cell", "Th cell", "CD4-positive T cell", "CD4 lymphocyte"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "CD8-positive, alpha-beta T cell",
+      "cl_id": "CL:0000625",
+      "synonyms": ["CD8 T cell", "CD8+ T cell", "CD8 T-cell", "cytotoxic T cell", "CTL", "CD8-positive T cell", "CD8 lymphocyte"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "regulatory T cell",
+      "cl_id": "CL:0000815",
+      "synonyms": ["Treg", "Tregs", "regulatory T-cell", "CD4+ CD25+ Foxp3+ T cell", "suppressor T cell"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "naive T cell",
+      "cl_id": "CL:0000895",
+      "synonyms": ["naive T-cell", "Tn", "naive CD4 T cell", "naive CD8 T cell"],
+      "category": "immune",
+      "notes": "Often needs further CD4/CD8 specification."
+    },
+    {
+      "preferred_label": "memory T cell",
+      "cl_id": "CL:0000813",
+      "synonyms": ["memory T-cell", "Tmem", "memory T lymphocyte"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "effector memory CD8-positive, alpha-beta T cell",
+      "cl_id": "CL:0000913",
+      "synonyms": ["TEM", "Tem", "effector memory CD8 T cell", "CD8 TEM"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "central memory CD8-positive, alpha-beta T cell",
+      "cl_id": "CL:0000907",
+      "synonyms": ["TCM", "Tcm", "central memory CD8 T cell", "CD8 TCM"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "B cell",
+      "cl_id": "CL:0000236",
+      "synonyms": ["B-cell", "B lymphocyte", "B-lymphocyte", "B cells", "B-cells"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "plasma cell",
+      "cl_id": "CL:0000786",
+      "synonyms": ["plasmacyte", "antibody-secreting cell", "ASC"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "natural killer cell",
+      "cl_id": "CL:0000623",
+      "synonyms": ["NK cell", "NK-cell", "natural killer", "NK lymphocyte"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "macrophage",
+      "cl_id": "CL:0000235",
+      "synonyms": ["Mφ", "M0", "macrophages"],
+      "category": "immune",
+      "notes": "Tissue-resident vs recruited often needs Anatomy context in SPOKE."
+    },
+    {
+      "preferred_label": "microglial cell",
+      "cl_id": "CL:0000129",
+      "synonyms": ["microglia", "brain macrophage", "CNS macrophage", "microglial"],
+      "category": "immune_cns",
+      "notes": "Key neuro-immune cell. Strongly prefer this over generic 'macrophage' for brain queries."
+    },
+    {
+      "preferred_label": "dendritic cell",
+      "cl_id": "CL:0000451",
+      "synonyms": ["DC", "DCs", "dendritic cells"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "monocyte",
+      "cl_id": "CL:0000576",
+      "synonyms": ["monocytes", "classical monocyte", "CD14+ monocyte"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "neutrophil",
+      "cl_id": "CL:0000775",
+      "synonyms": ["neutrophils", "PMN", "polymorphonuclear leukocyte"],
+      "category": "immune",
+      "notes": ""
+    },
+    {
+      "preferred_label": "neuron",
+      "cl_id": "CL:0000540",
+      "synonyms": ["neurone", "nerve cell", "neurons", "neuronal cell"],
+      "category": "neuron",
+      "notes": "Very broad. Prefer more specific (e.g. glutamatergic, GABAergic, interneuron) when possible."
+    },
+    {
+      "preferred_label": "glutamatergic neuron",
+      "cl_id": "CL:0000679",
+      "synonyms": ["excitatory neuron", "glutamatergic", "Glu neuron"],
+      "category": "neuron",
+      "notes": ""
+    },
+    {
+      "preferred_label": "GABAergic neuron",
+      "cl_id": "CL:0000617",
+      "synonyms": ["inhibitory neuron", "GABAergic", "GABA neuron"],
+      "category": "neuron",
+      "notes": ""
+    },
+    {
+      "preferred_label": "interneuron",
+      "cl_id": "CL:0000099",
+      "synonyms": ["interneurons", "local circuit neuron"],
+      "category": "neuron",
+      "notes": ""
+    },
+    {
+      "preferred_label": "pyramidal neuron",
+      "cl_id": "CL:0000598",
+      "synonyms": ["pyramidal cell", "pyramidal neurons"],
+      "category": "neuron",
+      "notes": ""
+    },
+    {
+      "preferred_label": "astrocyte",
+      "cl_id": "CL:0000127",
+      "synonyms": ["astrocytes", "astroglial cell", "astroglia"],
+      "category": "glia",
+      "notes": "Often relevant in neuro-immune contexts."
+    },
+    {
+      "preferred_label": "oligodendrocyte",
+      "cl_id": "CL:0000128",
+      "synonyms": ["oligodendrocytes", "OL", "oligo"],
+      "category": "glia",
+      "notes": ""
+    },
+    {
+      "preferred_label": "oligodendrocyte precursor cell",
+      "cl_id": "CL:0002453",
+      "synonyms": ["OPC", "NG2 cell", "oligodendrocyte progenitor"],
+      "category": "glia",
+      "notes": ""
+    },
+    {
+      "preferred_label": "Schwann cell",
+      "cl_id": "CL:0002573",
+      "synonyms": ["Schwann cells", "peripheral glia"],
+      "category": "glia",
+      "notes": ""
+    },
+    {
+      "preferred_label": "endothelial cell",
+      "cl_id": "CL:0000115",
+      "synonyms": ["endothelium", "vascular endothelial cell", "EC"],
+      "category": "other",
+      "notes": "Relevant for blood-brain barrier / neuro-immune."
+    },
+    {
+      "preferred_label": "pericyte",
+      "cl_id": "CL:0000669",
+      "synonyms": ["pericytes", "Rouget cell"],
+      "category": "other",
+      "notes": ""
+    }
+  ]
+}
