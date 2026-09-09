@@ -232,8 +232,8 @@
         <a href="https://spoke.rbvi.ucsf.edu/neighborhood.html" target="_blank" rel="noopener">SPOKE Neighborhood Explorer</a>.
       </p>
       <p style="margin-top:0.5rem">
-        This is a local demo using a curated seed list + simple fuzzy matching.
-        Production version would call OLS / embeddings / LLM re-ranker.
+        Uses a curated seed list + strict token matching (ignores pure letter similarity).
+        Production version can add OLS lookup or embeddings.
       </p>
     </footer>
   </div>
@@ -279,54 +279,103 @@
       t = t.replace(/[+\-_/]/g, " ");
       t = t.replace(/[^\w\s]/g, " ");
       t = t.replace(/\s+/g, " ").trim();
-      const map = { tregs: "regulatory t cell", treg: "regulatory t cell", nk: "natural killer",
-                    dcs: "dendritic cell", dc: "dendritic cell", opc: "oligodendrocyte precursor",
-                    tem: "effector memory", tcm: "central memory" };
+      // Expand common abbreviations to full phrases
+      const map = {
+        tregs: "regulatory t cell", treg: "regulatory t cell",
+        nk: "natural killer", dcs: "dendritic cell", dc: "dendritic cell",
+        opc: "oligodendrocyte precursor", tem: "effector memory",
+        tcm: "central memory", asc: "antibody secreting"
+      };
       for (const [k, v] of Object.entries(map)) {
         if (t === k || t.startsWith(k + " ")) t = t.replace(k, v);
       }
       return t;
     }
 
-    function similarity(a, b) {
-      if (a === b) return 1;
-      const longer = a.length > b.length ? a : b;
-      const shorter = a.length > b.length ? b : a;
-      if (longer.length === 0) return 1;
-      // simple Dice-like on bigrams + length ratio
-      const bigrams = s => {
-        const m = new Map();
-        for (let i = 0; i < s.length - 1; i++) {
-          const bg = s.slice(i, i + 2);
-          m.set(bg, (m.get(bg) || 0) + 1);
-        }
-        return m;
-      };
-      const bg1 = bigrams(a), bg2 = bigrams(b);
-      let inter = 0;
-      for (const [k, v] of bg1) inter += Math.min(v, bg2.get(k) || 0);
-      const dice = (2 * inter) / (a.length + b.length - 2 || 1);
-      return Math.max(dice, a.includes(b) || b.includes(a) ? 0.85 : 0);
+    // Words that are too generic to count as meaningful matches by themselves
+    const STOP = new Set(["cell", "cells", "positive", "negative", "alpha", "beta", "the", "of", "and", "a", "an"]);
+
+    function tokens(text) {
+      return normalize(text).split(" ").filter(w => w.length > 1 && !STOP.has(w));
+    }
+
+    /**
+     * Strict matching:
+     * - Exact full-string match → 1.0
+     * - Query equals a synonym/preferred label → 1.0
+     * - Strong token overlap (shared meaningful words) → high score
+     * - Pure letter similarity is NO longer used → prevents astrocyte ↔ plasmacyte etc.
+     */
+    function scoreMatch(queryNorm, entryNorm, entryText) {
+      if (!queryNorm || !entryNorm) return 0;
+
+      // Exact match
+      if (queryNorm === entryNorm) return 1.0;
+
+      // One contains the other as a whole phrase
+      if (entryNorm === queryNorm || entryNorm.startsWith(queryNorm + " ") || entryNorm.endsWith(" " + queryNorm) ||
+          queryNorm.startsWith(entryNorm + " ") || queryNorm.endsWith(" " + entryNorm)) {
+        return 0.95;
+      }
+
+      const qTokens = tokens(queryNorm);
+      const eTokens = tokens(entryNorm);
+      if (qTokens.length === 0 || eTokens.length === 0) return 0;
+
+      // How many meaningful query tokens appear in the entry?
+      const shared = qTokens.filter(t => eTokens.includes(t));
+      if (shared.length === 0) return 0;           // no shared meaningful word → reject
+
+      const precision = shared.length / qTokens.length;   // fraction of query covered
+      const recall    = shared.length / eTokens.length;   // fraction of entry covered
+
+      // Require that a solid part of the query is covered
+      if (precision < 0.6) return 0;
+
+      // Final score emphasises covering the user's query
+      let score = 0.55 + (0.35 * precision) + (0.10 * recall);
+
+      // Small boost when the matched text is short (more specific)
+      if (eTokens.length <= 3) score += 0.05;
+
+      return Math.min(score, 0.99);
     }
 
     function mapQuery(query, topK = 5) {
       const q = normalize(query);
       if (!q) return [];
+
       const entries = [];
       for (const term of SEED.terms) {
-        entries.push({ text: term.preferred_label, norm: normalize(term.preferred_label), ...term, match_type: "preferred" });
+        entries.push({
+          text: term.preferred_label,
+          norm: normalize(term.preferred_label),
+          preferred_label: term.preferred_label,
+          cl_id: term.cl_id,
+          category: term.category,
+          notes: term.notes || "",
+          match_type: "preferred"
+        });
         for (const syn of (term.synonyms || [])) {
-          entries.push({ text: syn, norm: normalize(syn), preferred_label: term.preferred_label, cl_id: term.cl_id,
-                         category: term.category, notes: term.notes, match_type: "synonym" });
+          entries.push({
+            text: syn,
+            norm: normalize(syn),
+            preferred_label: term.preferred_label,
+            cl_id: term.cl_id,
+            category: term.category,
+            notes: term.notes || "",
+            match_type: "synonym"
+          });
         }
       }
+
       const scored = [];
       const seen = new Set();
+
       for (const e of entries) {
-        let score = similarity(q, e.norm);
-        if (q === e.norm) score = 1;
-        else if (q.includes(e.norm) || e.norm.includes(q)) score = Math.max(score, 0.85);
-        if (score < 0.35) continue;
+        const score = scoreMatch(q, e.norm, e.text);
+        if (score < 0.70) continue;               // strict threshold – kills weak letter matches
+
         if (seen.has(e.cl_id)) {
           const existing = scored.find(s => s.cl_id === e.cl_id);
           if (score > existing.score) {
@@ -343,10 +392,11 @@
             match_type: e.match_type,
             matched_text: e.text,
             category: e.category,
-            notes: e.notes || ""
+            notes: e.notes
           });
         }
       }
+
       scored.sort((a, b) => b.score - a.score || a.preferred_label.localeCompare(b.preferred_label));
       return scored.slice(0, topK);
     }
